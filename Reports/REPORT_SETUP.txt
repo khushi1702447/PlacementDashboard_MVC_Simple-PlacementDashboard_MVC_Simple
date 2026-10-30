@@ -1,0 +1,7 @@
+Crystal Reports setup:
+1. Install SAP Crystal Reports for Visual Studio.
+2. Add a Crystal Report named PlacementSummary.rpt in the Reports folder.
+3. Create fields from the PlacementReportData table supplied by PlacementRepository.GetReportData().
+4. Include EnrollmentNo, StudentName, Department, GraduationYear, CGPA, CompanyName, JobRole,
+   PackageLPA, PlacementStatus and OfferDate.
+5. Save the .rpt file in the project's Reports folder.

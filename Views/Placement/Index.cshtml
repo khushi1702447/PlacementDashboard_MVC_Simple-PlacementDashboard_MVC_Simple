@@ -1,0 +1,38 @@
+@model PlacementDashboard.Models.DashboardViewModel
+@{
+    ViewBag.Title = "Placement Dashboard";
+}
+<h2>Placement Dashboard</h2>
+
+<p><b>Total Students:</b> @Model.TotalStudents</p>
+<p><b>Placed Students:</b> @Model.PlacedStudents</p>
+<p><b>Average Package:</b> Rs. @Model.AveragePackage.ToString("0.00") LPA</p>
+
+<h3>Student Placement Details</h3>
+<table border="1" cellpadding="6" cellspacing="0">
+    <tr>
+        <th>Enrollment No.</th>
+        <th>Student Name</th>
+        <th>Department</th>
+        <th>Company</th>
+        <th>Job Role</th>
+        <th>Package (LPA)</th>
+        <th>Status</th>
+        <th>Offer Date</th>
+    </tr>
+    @foreach (var item in Model.Records)
+    {
+        <tr>
+            <td>@item.EnrollmentNo</td>
+            <td>@item.StudentName</td>
+            <td>@item.Department</td>
+            <td>@item.CompanyName</td>
+            <td>@item.JobRole</td>
+            <td>@item.PackageLPA</td>
+            <td>@item.PlacementStatus</td>
+            <td>@(item.OfferDate.HasValue ? item.OfferDate.Value.ToString("dd-MM-yyyy") : "-")</td>
+        </tr>
+    }
+</table>
+
+<p>@Html.ActionLink("View Crystal Report", "Report", "Placement")</p>
